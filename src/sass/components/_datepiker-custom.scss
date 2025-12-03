@@ -1,0 +1,174 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+
+.ui-datepicker {
+  background: #fff;
+  border: none;
+  width: 201px !important;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(210, 209, 210, 1) !important;
+margin-top:2px;
+
+
+
+
+  & .ui-datepicker-header {
+    background: transparent;
+    padding: 15px 0;
+    text-align: center;
+    position: relative;
+    border: none;
+
+    .ui-datepicker-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #000;
+      letter-spacing: 1px;
+      text-transform: none;
+    }
+
+    /* Buttons */
+    .ui-datepicker-prev, .ui-datepicker-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      border: none;
+
+      &:hover {
+        background: transparent;
+      }
+    }
+
+    .ui-datepicker-prev {
+      left: 0;
+    }
+
+    .ui-datepicker-next {
+      right: 0;
+    }
+
+    /* Custom icons ◀ ▶ */
+    .ui-datepicker-prev::after,
+    .ui-datepicker-next::after {
+      font-family: 'icomoon' !important;
+      font-size: 20px;
+      color: #000;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 400;
+    }
+
+    .ui-datepicker-prev::after {
+      content: "\e907";
+      left: 6px;
+    }
+
+    .ui-datepicker-next::after {
+      content: "\e906";
+      right: 6px;
+    }
+
+    /* hide jQuery UI default icons */
+    .ui-icon {
+      display: none;
+    }
+  }
+
+  & .ui-datepicker-calendar {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    margin-top: 10px;
+    border-spacing: 0;
+    text-align: center;
+
+    thead {
+      th {
+        font-size: 13px;
+        font-weight: 700;
+        color: #222;
+        padding-bottom: 8px;
+        user-select: none;
+      }
+    }
+
+    tbody {
+      td {
+        padding: 2px 0;
+
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          width: 23px;
+          height: 23px;
+          margin: 0 auto;
+
+          font-size: 13px;
+          text-decoration: none;
+          border-radius: 0;
+          border: none !important;
+          transition: 0.2s;
+          background: transparent !important;
+          user-select: none;
+
+          &:hover {
+            background: rgba(192, 57, 43, 0.1);
+          }
+        }
+
+        &.ui-state-default {
+          color: #333437;
+        }
+
+        & .ui-state-active {
+          background: #3D8EDA !important;
+          color: #fff !important;
+          border-radius: 2px;
+        }
+
+        & .ui-datepicker-today a {
+          background: #007bff;
+          color: #fff !important;
+          border-radius: 50%;
+          font-weight: 700;
+        }
+
+        /* Вимкнені дні */
+        .ui-state-disabled {
+          opacity: 0.25;
+          pointer-events: none;
+          color: #999 !important;
+        }
+
+        &.datepicker-sunday:not(.ui-datepicker-current-day, .ui-datepicker-other-month) {
+          & a {
+            background: #F4F4F4 !important;
+            color: #000;
+          }
+        }
+
+        &.ui-datepicker-other-month {
+          & a {
+            background: transparent !important;
+            color: rgba(146, 146, 146, 1) !important;
+          }
+        }
+
+      }
+    }
+  }
+
+}
+
+
+
